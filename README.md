@@ -148,7 +148,7 @@ Ao longo do **1º Sprint**, a equipe materializou o planejamento técnico em um 
 
 | Boas-vindas | Aranha de Halloween | Menu | Destinos |
 |---|---|---|---|
-| ![Boas-vindas](docs/imagens/01_boas_vindas.png) | ![Aranha](docs/imagens/02_aranha_halloween.png) | ![Menu](docs/imagens/03_menu.png) | ![Destinos](docs/imagens/04_destinos.png) |
+| ![Boas-vindas](capim-dourado-guia-acessivel-main/docs/imagens/01_boas_vindas.png) | ![Aranha](docs/imagens/02_aranha_halloween.png) | ![Menu](docs/imagens/03_menu.png) | ![Destinos](docs/imagens/04_destinos.png) |
 
 | Rota no Térreo | Troca para o Piso 1 | Chegada | Alto Contraste |
 |---|---|---|---|
