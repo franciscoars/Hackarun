@@ -31,6 +31,11 @@ O projeto será implementado no **Capim Dourado Shopping**, o principal centro d
 * **1º Pavimento (Térreo):** Concentra grandes lojas âncoras (C&A, Renner, Riachuelo, Marisa, Pernambucanas) e área de entretenimento como brinquedos e cinema (Cinemark), corredores longos e diversas saídas, o que exige um bom sistema de roteamento para evitar fadiga em pessoas com mobilidade reduzida.
 * **2º Pavimento (Praça de Alimentação / Lazer):** Concentra a rede de fast-food (McDonald's, Spoleto, Divino Fogão, Subway). É uma zona de alto ruído, onde a comunicação visual e por libras se faz ainda mais necessária.
 
+<p align="center">
+  <img src="imgs/mapa_plantamix.jpg" alt="Planta mix do Capim Dourado" width="750"><br>
+  <em>Imagem 1 - Planta mix do Capim Dourado</em>
+</p>
+
 ![Planta mix do Capim Dourado](imgs/mapa_plantamix.jpg)
 *Imagem 1 - Planta mix do Capim Dourado*
 
@@ -59,6 +64,11 @@ Ao lado da tela do totem, haverá uma placa física contendo:
 * **QR Code em Alto Relevo:** Para que pessoas cegas ou com baixa visão possam tatear e escanear facilmente com seus smartphones;
 * **Botão Físico de Assistência:** Ao ser pressionado, o totem emite um aviso vocalizado ("Seu pedido de ajuda foi registrado. Dentro de instantes, um colaborador do shopping irá auxiliá-lo"). Simultaneamente, o sistema dispara um alerta para o rádio/tablet da equipe de segurança mais próxima;
 
+<p align="center">
+  <img src="imgs/totem.jpg" alt="Expectativa Totem" width="380"><br>
+  <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
+</p>
+
 ![expectativa Totem](imgs/totem.jpg)
 *Imagem 2 - Ilustração de expectativa gerada por IA do Totem*
 
@@ -67,6 +77,11 @@ Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessida
 * Ele espelha as funções do totem no celular do usuário (trazendo autonomia).
 * **Comportamento Padrão:** O web app já carrega com a navegação vocalizada ativada (pensando no visitante cego que escaneou o QR Code tátil).
 * **Controle do Usuário:** Para visitantes que não precisam do leitor de tela (como estrangeiros ou pessoas surdas), haverá um botão grande e visível na primeira tela para Desativar a Voz.
+
+<p align="center">
+  <img src="imgs/totem.jpg" alt="Expectativa Totem" width="380"><br>
+  <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
+</p>
 
 ![esboço inicial do app](imgs/app.jpg)
 *Imagem 3 - Tela inicial do Web Aplicativo*
