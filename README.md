@@ -73,7 +73,7 @@ Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessida
 * **Controle do Usuário:** Para visitantes que não precisam do leitor de tela (como estrangeiros ou pessoas surdas), haverá um botão grande e visível na primeira tela para Desativar a Voz.
 
 <p align="center">
-  <img src="imgs/totem.jpg" alt="Expectativa Totem" width="380"><br>
+  <img src="imgs/app.jpg" alt="Expectativa Totem" width="380"><br>
   <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
 </p>
 
