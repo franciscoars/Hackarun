@@ -36,9 +36,6 @@ O projeto será implementado no **Capim Dourado Shopping**, o principal centro d
   <em>Imagem 1 - Planta mix do Capim Dourado</em>
 </p>
 
-![Planta mix do Capim Dourado](imgs/mapa_plantamix.jpg)
-*Imagem 1 - Planta mix do Capim Dourado*
-
 ### Base Legal e Vantagens de Negócio
 O projeto atende às diretrizes da **Lei Brasileira de Inclusão (LBI - Lei nº 13.146/2015)**, que garante o direito à acessibilidade em espaços de uso público, e segue as normas da **ABNT NBR 9050**.
 Como vantagem competitiva na prática da Governança Ambiental, Social e Corporativa (ESG), além de evitar multas e litígios, tornar o ambiente acessível amplia a base de consumidores ativos (pessoas com deficiência e seus acompanhantes, além de turistas). Do ponto de vista de marketing, posiciona o Capim Dourado Shopping como boas práticas em ESG no Norte do país.
@@ -69,9 +66,6 @@ Ao lado da tela do totem, haverá uma placa física contendo:
   <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
 </p>
 
-![expectativa Totem](imgs/totem.jpg)
-*Imagem 2 - Ilustração de expectativa gerada por IA do Totem*
-
 ### O Web Aplicativo (Zero-Install)
 Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessidade de download).
 * Ele espelha as funções do totem no celular do usuário (trazendo autonomia).
@@ -82,9 +76,6 @@ Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessida
   <img src="imgs/totem.jpg" alt="Expectativa Totem" width="380"><br>
   <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
 </p>
-
-![esboço inicial do app](imgs/app.jpg)
-*Imagem 3 - Tela inicial do Web Aplicativo*
 
 ---
 
