@@ -148,15 +148,15 @@ Ao longo do **1º Sprint**, a equipe materializou o planejamento técnico em um 
 
 | Boas-vindas | Aranha de Halloween | Menu | Destinos |
 |---|---|---|---|
-| ![Boas-vindas](capim-dourado-guia-acessivel-main/docs/imagens/01_boas_vindas.png) | ![Aranha](docs/imagens/02_aranha_halloween.png) | ![Menu](docs/imagens/03_menu.png) | ![Destinos](docs/imagens/04_destinos.png) |
+| ![Boas-vindas](capim-dourado-guia-acessivel-main/docs/imagens/01_boas_vindas.png) | ![Aranha](capim-dourado-guia-acessivel-main/docs/imagens/02_aranha_halloween.png) | ![Menu](capim-dourado-guia-acessivel-main/docs/imagens/03_menu.png) | ![Destinos](capim-dourado-guia-acessivel-main/docs/imagens/04_destinos.png) |
 
 | Rota no Térreo | Troca para o Piso 1 | Chegada | Alto Contraste |
 |---|---|---|---|
-| ![Rota Térreo](docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](docs/imagens/06_rota_piso1.png) | ![Chegada](docs/imagens/07_chegada.png) | ![Alto contraste](docs/imagens/08_alto_contraste.png) |
+| ![Rota Térreo](capim-dourado-guia-acessivel-main/docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](capim-dourado-guia-acessivel-main/docs/imagens/06_rota_piso1.png) | ![Chegada](capim-dourado-guia-acessivel-main/docs/imagens/07_chegada.png) | ![Alto contraste](capim-dourado-guia-acessivel-main/docs/imagens/08_alto_contraste.png) |
 
 | SOS salvo no banco | Totem: menu | Totem: rota + QR Code |
 |---|---|---|
-| ![SOS](docs/imagens/09_sos_banco.png) | ![Totem menu](docs/imagens/10_totem_menu.png) | ![Totem rota](docs/imagens/11_totem_rota_qr.png) |
+| ![SOS](capim-dourado-guia-acessivel-main/docs/imagens/09_sos_banco.png) | ![Totem menu](capim-dourado-guia-acessivel-main/docs/imagens/10_totem_menu.png) | ![Totem rota](capim-dourado-guia-acessivel-main/docs/imagens/11_totem_rota_qr.png) |
 
 ### Funcionalidades Entregues no Sprint
 
