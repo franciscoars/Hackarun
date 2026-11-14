@@ -59,7 +59,7 @@ Ao lado da tela do totem, haverá uma placa física contendo:
 * **QR Code em Alto Relevo:** Para que pessoas cegas ou com baixa visão possam tatear e escanear facilmente com seus smartphones;
 * **Botão Físico de Assistência:** Ao ser pressionado, o totem emite um aviso vocalizado ("Seu pedido de ajuda foi registrado. Dentro de instantes, um colaborador do shopping irá auxiliá-lo"). Simultaneamente, o sistema dispara um alerta para o rádio/tablet da equipe de segurança mais próxima;
 
-![expectativa Totem](docs/imgs/totem.jfif)
+![expectativa Totem](docs/imgs/totem.png)
 *Imagem 2 - Ilustração de expectativa gerada por IA do Totem*
 
 ### O Web Aplicativo (Zero-Install)
@@ -68,7 +68,7 @@ Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessida
 * **Comportamento Padrão:** O web app já carrega com a navegação vocalizada ativada (pensando no visitante cego que escaneou o QR Code tátil).
 * **Controle do Usuário:** Para visitantes que não precisam do leitor de tela (como estrangeiros ou pessoas surdas), haverá um botão grande e visível na primeira tela para Desativar a Voz.
 
-![esboço inicial do app](docs/imgs/app.jfif)
+![esboço inicial do app](docs/imgs/app.png)
 *Imagem 3 - Tela inicial do Web Aplicativo*
 
 ---
