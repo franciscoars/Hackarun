@@ -204,14 +204,15 @@ lib/
 ├── logic/rota.dart           # Cálculo da rota e instruções passo a passo
 ├── screens/                  # Boas-vindas, menu, rotas, mapa, SOS, CAA, voz
 └── widgets/                  # Mapa ilustrado, aranha, moldura do celular e do totem
+```
 
 ## 📚 Referências
 
-* **BRASIL.** Lei nº 13.146, de 6 de julho de 2015. Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência). Diário Oficial da União, Brasília, DF, 7 jul. 2015. Disponível em: http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm. Acesso em: 13 nov. 2026.
-* **GOOGLE.** Gemini. Mountain View, CA: Google, 2026. Inteligência artificial generativa (Modelo Multimodal). Utilizado para auxílio na estruturação documental, ideação de protótipos de tela, geração de código base em Flutter e criação de imagens conceituais do projeto. Disponível em: https://gemini.google.com. Acesso em: 13 nov. 2026.
-* **OPENAI.** ChatGPT. San Francisco, CA: OpenAI, 2026. Inteligência artificial generativa (Modelo de Linguagem). Utilizado pela equipe para apoio na ideação e estruturação inicial da proposta do projeto. Disponível em: https://chatgpt.com. Acesso em: 13 nov. 2026.
-* **INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE).** Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC) 2022: Pessoas com deficiência e as desigualdades sociais no Brasil. Rio de Janeiro: IBGE, 2023. Disponível em: https://ibge.gov.br. Acesso em: 13 nov. 2026.
-* **MINISTÉRIO DO TURISMO.** Anuário Estatístico de Turismo. Brasília, DF: Ministério do Turismo, 2025. Disponível em: https://www.gov.br/turismo. Acesso em: 13 nov. 2026.
-* **SOUL MALLS; CAPIM DOURADO SHOPPING.** Operações - Capim Dourado Shopping: Plantas Baixas (Pavimento Térreo e Praça de Alimentação). Palmas, TO, nov. 2026. Arquivo PDF. 
-* **TOCANTINS.** Secretaria de Estado do Turismo (SETUR). Observatório do Turismo do Tocantins: perfil da demanda turística. Palmas: SETUR, 2025. Disponível em: https://www.to.gov.br/turismo. Acesso em: 13 nov. 2026.
-* **W3C - WORLD WIDE WEB CONSORTIUM.** Web Content Accessibility Guidelines (WCAG) 2.2. 11 out. 2023. Disponível em: https://www.w3.org/TR/WCAG22/. Acesso em: 13 nov. 2026.
+* **BRASIL.** Lei nº 13.146, de 6 de julho de 2015. Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência). Diário Oficial da União, Brasília, DF, 7 jul. 2015. Disponível em: [http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm). Acesso em: 13 nov. 2026.
+* **GOOGLE.** Gemini. Mountain View, CA: Google, 2026. Inteligência artificial generativa (Modelo Multimodal). Utilizado para auxílio na estruturação documental, ideação de protótipos de tela, geração de código base em Flutter e criação de imagens conceituais do projeto. Disponível em: [https://gemini.google.com](https://gemini.google.com). Acesso em: 13 nov. 2026.
+* **OPENAI.** ChatGPT. San Francisco, CA: OpenAI, 2026. Inteligência artificial generativa (Modelo de Linguagem). Utilizado pela equipe para apoio na ideação e estruturação inicial da proposta do projeto. Disponível em: [https://chatgpt.com](https://chatgpt.com). Acesso em: 13 nov. 2026.
+* **INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE).** Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC) 2022: Pessoas com deficiência e as desigualdades sociais no Brasil. Rio de Janeiro: IBGE, 2023. Disponível em: [https://ibge.gov.br](https://ibge.gov.br). Acesso em: 13 nov. 2026.
+* **MINISTÉRIO DO TURISMO.** Anuário Estatístico de Turismo. Brasília, DF: Ministério do Turismo, 2025. Disponível em: [https://www.gov.br/turismo](https://www.gov.br/turismo). Acesso em: 13 nov. 2026.
+* **SOUL MALLS; CAPIM DOURADO SHOPPING.** Operações - Capim Dourado Shopping: Plantas Baixas (Pavimento Térreo e Praça de Alimentação). Palmas, TO, nov. 2026. Arquivo PDF.
+* **TOCANTINS.** Secretaria de Estado do Turismo (SETUR). Observatório do Turismo do Tocantins: perfil da demanda turística. Palmas: SETUR, 2025. Disponível em: [https://www.to.gov.br/turismo](https://www.to.gov.br/turismo). Acesso em: 13 nov. 2026.
+* **W3C - WORLD WIDE WEB CONSORTIUM.** Web Content Accessibility Guidelines (WCAG) 2.2. 11 out. 2023. Disponível em: [https://www.w3.org/TR/WCAG22/](https://www.w3.org/TR/WCAG22/). Acesso em: 13 nov. 2026.
