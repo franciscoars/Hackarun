@@ -12,7 +12,12 @@ final String? destinoInicial = Uri.base.queryParameters['destino'];
 String get urlPublica {
   const lan = String.fromEnvironment('LAN_URL');
   if (lan.isNotEmpty) return lan;
-  if (kIsWeb) return Uri.base.origin;
+  if (kIsWeb) {
+    // Mantém a subpasta (ex.: GitHub Pages em /capim-dourado-guia-acessivel/).
+    final caminho = Uri.base.path;
+    final pasta = caminho.substring(0, caminho.lastIndexOf('/'));
+    return '${Uri.base.origin}$pasta';
+  }
   return 'http://localhost:8090';
 }
 

@@ -1,15 +1,73 @@
 # Hackrun Unicatólica - Edição: Capim Dourado Shopping 🚀
 
-**Grupo 18: ENTEI**
-* **Mentoras:** Débora e Tamirys Virgulino
-* **Componentes:** Francisco de Assis Rodrigues dos Santos, Pedro Henrique Ricardo, Pedro Henrique Mendonça Passos e Samuel Pereira Dias.
+### Guia Acessível · Totem + Web App de acessibilidade · Grupo 18 ENTEI
+
+<p align="center">
+  <a href="https://franciscoars.github.io/Hackarun/"><img src="https://img.shields.io/badge/📱_Abrir_o_app-no_celular_ou_PC-17382A?style=for-the-badge" alt="Abrir o app"></a>
+  <a href="https://franciscoars.github.io/Hackarun/?totem"><img src="https://img.shields.io/badge/🖥️_Abrir_o_totem-simulação-C8961E?style=for-the-badge" alt="Abrir o totem"></a>
+  <a href="https://github.com/franciscoars/Hackarun/raw/main/simulador/Guia-Acessivel-Capim-Dourado.html"><img src="https://img.shields.io/badge/⬇️_Baixar_o_HTML-funciona_offline-E65100?style=for-the-badge" alt="Baixar o HTML"></a>
+</p>
+
+---
+
+## ⚡ Acesso rápido
+
+| Quero... | Como |
+|---|---|
+| **Usar no celular** | Aponte a câmera para o QR Code abaixo ou abra **[franciscoars.github.io/Hackarun](https://franciscoars.github.io/Hackarun/)**. Não precisa instalar nada. |
+| **Ver o totem** (no PC) | Abra **[franciscoars.github.io/Hackarun/?totem](https://franciscoars.github.io/Hackarun/?totem)**. O QR Code na tela do totem abre o mesmo guia no celular. |
+| **Rodar sem internet** | Baixe **[Guia-Acessivel-Capim-Dourado.html](https://github.com/franciscoars/Hackarun/raw/main/simulador/Guia-Acessivel-Capim-Dourado.html)** (12,7 MB) e dê dois cliques. Tudo vem dentro do arquivo. |
+| **Ir direto para uma rota** | Adicione `?destino=` ao link. Ex.: [Praça de Alimentação](https://franciscoars.github.io/Hackarun/?destino=praca) · [Cinema](https://franciscoars.github.io/Hackarun/?destino=cinema) · [Banheiros](https://franciscoars.github.io/Hackarun/?destino=banh0) · [SAC](https://franciscoars.github.io/Hackarun/?destino=sac) |
+| **Ler o código** | Pasta [`app/`](app/) (Flutter) ou tudo em um arquivo: [`app/CODIGO_COMPLETO.txt`](app/CODIGO_COMPLETO.txt). |
+
+<p align="center">
+  <img src="imgs/qr-app.png" alt="QR Code que abre o Guia Acessível no celular" width="200"><br>
+  <em>Aponte a câmera do celular para abrir o Guia Acessível</em>
+</p>
+
+### 👆 Como usar (roteiro de demonstração)
+
+1. **Boas-vindas:** toque em qualquer lugar para começar.
+2. **Rotas:** escolha um destino (ex.: *Praça de Alimentação*). O mapa redondo mostra o caminho; toque em **Próximo** para seguir passo a passo. A bússola no topo gira e indica **FRENTE / ESQUERDA / DIREITA / ELEVADOR**.
+3. **Ouvir:** lê o passo em voz alta. Ative o **Guia por Voz** no menu para ouvir tudo automaticamente.
+4. **Alto Contraste:** **1 toque** = preto e amarelo. **2 toques seguidos** = **modo Halloween** 🎃 (preto e laranja, abóboras, morcegos e teias).
+5. **Comunicação por Imagens (CAA):** toque num pictograma (ex.: *Banheiro*); o app fala a frase e mostra em tela cheia para o atendente.
+6. **Ajuda / SOS:** chama um atendente até o totem; o chamado fica registrado.
+7. **Painel da gestão do shopping** (fim do menu): destinos mais buscados e mapas de calor de uso.
+
+---
+
+## 🗂️ Organização do repositório
+
+```text
+Hackarun/
+├── README.md                 ← este documento (planejamento + resultado)
+├── app/                      ← código-fonte do app em Flutter (totem + web app + Android)
+│   ├── lib/                  ← telas, mapa, rotas, voz, banco de dados
+│   ├── test/                 ← testes automatizados das rotas
+│   ├── docs/imagens/         ← capturas de tela
+│   ├── esboco_totem/         ← esboço do totem físico (NBR 9050)
+│   ├── ferramentas/          ← servidor do totem e gerador do HTML único
+│   └── CODIGO_COMPLETO.txt   ← todo o código em um só arquivo
+├── simulador/
+│   └── Guia-Acessivel-Capim-Dourado.html   ← app inteiro em 1 arquivo (offline)
+├── prototipos/
+│   └── totem-html-v1.html    ← primeiro protótipo do totem (HTML puro)
+└── imgs/                     ← imagens deste README
+```
+
+O site publicado no **GitHub Pages** fica no branch [`gh-pages`](https://github.com/franciscoars/Hackarun/tree/gh-pages) (versão compilada do `app/`).
 
 ---
 
 ## 📌 Planejamento Técnico Inicial - Primeira Entrega
 
+**Grupo 18: ENTEI**
+* **Mentoras:** Débora e Tamirys Virgulino
+* **Componentes:** Francisco de Assis Rodrigues dos Santos, Pedro Henrique Ricardo, Pedro Henrique Mendonça Passos e Samuel Pereira Dias.
+
 ### Problema 01: Acessibilidade e comunicação universal
-* **Contexto:** O shopping recebe visitantes com diferentes necessidades de comunicação, incluindo pessoas surdas, cegas, pessoas com deficiência e estrangeiros. 
+* **Contexto:** O shopping recebe visitantes com diferentes necessidades de comunicação, incluindo pessoas surdas, cegas, pessoas com deficiência e estrangeiros.
 * **Problemática:** Nem todos conseguem acessar informações, compreender orientações ou se comunicar com os profissionais do shopping com a mesma facilidade e autonomia.
 * **Objetivo:** Tornar a experiência no shopping mais acessível, inclusiva e independente das limitações de comunicação dos visitantes.
 
@@ -73,8 +131,8 @@ Ao escanear o QR Code, o dispositivo do visitante abre um Web App (sem necessida
 * **Controle do Usuário:** Para visitantes que não precisam do leitor de tela (como estrangeiros ou pessoas surdas), haverá um botão grande e visível na primeira tela para Desativar a Voz.
 
 <p align="center">
-  <img src="imgs/app.jpg" alt="Expectativa Totem" width="380"><br>
-  <em>Imagem 2 - Ilustração de expectativa gerada por IA do Totem</em>
+  <img src="imgs/app.jpg" alt="Expectativa do Web App" width="380"><br>
+  <em>Imagem 3 - Ilustração de expectativa gerada por IA do Web App</em>
 </p>
 
 ---
@@ -99,7 +157,7 @@ O design seguirá princípios de acessibilidade universal:
 * **Tela do Web App:** UI focada em mobile, replicando as funções com um pop-up imediato: "Acessibilidade por voz ativada. [Toque aqui para desativar]".
 
 ### Plataforma e Tecnologias Adotadas
-* **Framework Principal:** Flutter (com linguagem Dart). Permite escrever o código uma única vez e compilá-lo tanto para o Totem (Flutter Desktop) quanto para o celular do usuário (Flutter Web via QR Code). O Flutter é um framework multiplataforma (cross-platform). Isso nos permite escrever o código apenas uma vez e compilá-lo tanto para rodar nativamente no Totem (Windows/Linux via Flutter Desktop) quanto para o celular do usuário final (via Flutter Web) acessado pelo QR Code.
+* **Framework Principal:** Flutter (com linguagem Dart). O Flutter é um framework multiplataforma (cross-platform). Isso nos permite escrever o código apenas uma vez e compilá-lo tanto para rodar nativamente no Totem (Windows/Linux via Flutter Desktop) quanto para o celular do usuário final (via Flutter Web) acessado pelo QR Code.
 * **Controle de Versão:** Git e GitHub para o versionamento e desenvolvimento colaborativo seguro da equipe.
 * **Acessibilidade:** Web Speech API / flutter_tts para conversão de Texto para Voz (TTS) e widgets com atributos semânticos (Semantics).
 * **Backend:** Firebase ou Supabase (BaaS) para gerenciamento em tempo real dos chamados de assistência e dados de mapeamento.
@@ -149,68 +207,94 @@ Por adotarmos uma metodologia ágil, ressaltamos que a arquitetura e a interface
 ---
 ---
 
-## 🚀 Resultado do Primeiro Sprint (MVP Funcional)
+## 🚀 Resultado: MVP Funcional
 
-Ao longo do **1º Sprint**, a equipe materializou o planejamento técnico em um protótipo funcional multiplataforma em **Flutter**, acompanhado do esboço ergonômico do totem físico.
+A equipe materializou o planejamento técnico em um protótipo funcional multiplataforma em **Flutter**, acompanhado do esboço ergonômico do totem físico. **[Experimente agora →](https://franciscoars.github.io/Hackarun/)**
 
 ### Telas Implementadas
 
-| Boas-vindas | Aranha de Halloween | Menu | Destinos |
+| Boas-vindas | Menu | Destinos | Modo Halloween |
 |---|---|---|---|
-| ![Boas-vindas](capim-dourado-guia-acessivel-main/docs/imagens/01_boas_vindas.png) | ![Aranha](capim-dourado-guia-acessivel-main/docs/imagens/02_aranha_halloween.png) | ![Menu](capim-dourado-guia-acessivel-main/docs/imagens/03_menu.png) | ![Destinos](capim-dourado-guia-acessivel-main/docs/imagens/04_destinos.png) |
+| ![Boas-vindas](app/docs/imagens/01_boas_vindas.png) | ![Menu](app/docs/imagens/03_menu.png) | ![Destinos](app/docs/imagens/04_destinos.png) | ![Halloween](app/docs/imagens/02_halloween_menu.png) |
 
-| Rota no Térreo | Troca para o Piso 1 | Chegada | Alto Contraste |
+| Rota no Térreo (bússola) | Piso 1 pelo elevador | Chegada | Alto Contraste |
 |---|---|---|---|
-| ![Rota Térreo](capim-dourado-guia-acessivel-main/docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](capim-dourado-guia-acessivel-main/docs/imagens/06_rota_piso1.png) | ![Chegada](capim-dourado-guia-acessivel-main/docs/imagens/07_chegada.png) | ![Alto contraste](capim-dourado-guia-acessivel-main/docs/imagens/08_alto_contraste.png) |
+| ![Rota Térreo](app/docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](app/docs/imagens/06_rota_piso1.png) | ![Chegada](app/docs/imagens/07_chegada.png) | ![Alto contraste](app/docs/imagens/08_alto_contraste.png) |
 
-| SOS salvo no banco | Totem: menu | Totem: rota + QR Code |
+| Rota no modo Halloween | Painel da Gestão | SOS salvo no banco |
 |---|---|---|
-| ![SOS](capim-dourado-guia-acessivel-main/docs/imagens/09_sos_banco.png) | ![Totem menu](capim-dourado-guia-acessivel-main/docs/imagens/10_totem_menu.png) | ![Totem rota](capim-dourado-guia-acessivel-main/docs/imagens/11_totem_rota_qr.png) |
+| ![Halloween rota](app/docs/imagens/12_halloween_rota.png) | ![Painel da Gestão](app/docs/imagens/13_painel_gestao.png) | ![SOS](app/docs/imagens/09_sos_banco.png) |
 
-### Funcionalidades Entregues no Sprint
+| Totem: menu | Totem: rota + QR Code |
+|---|---|
+| ![Totem menu](app/docs/imagens/10_totem_menu.png) | ![Totem rota](app/docs/imagens/11_totem_rota_qr.png) |
+
+### Funcionalidades Entregues
 
 | Recurso | O que faz |
 |---|---|
-| **Tela de boas-vindas** | Logo do shopping e "Toque em qualquer lugar para começar", com capim dourado animado. |
-| **Detalhe de Halloween** | Ao tocar, uma aranha desce pelo fio até o centro, balança por 1,5 s e some. Não interfere no resto do app. |
-| **Rotas por zona** | O visitante escolhe uma área (ex.: Praça de Alimentação). O mapa nomeia **só a zona de destino**, sem listar lojas, e traça uma linha tracejada animada a partir do "Você está aqui". |
-| **Passo a passo** | Instruções com direção real (esquerda/direita), distância em metros, troca automática de piso e aviso de elevador. |
-| **Mapa ilustrado** | Térreo e Piso 1 em estilo lúdico, com zoom e toque nas áreas *(layout ilustrativo criado para o protótipo)*. |
+| **Tela de boas-vindas** | Logo oficial do shopping e "Toque em qualquer lugar para começar", com capim dourado animado. |
+| **Mapa redondo (MVP de locais fixos)** | Prédio oval com corredor circular, jardim no átrio, passarelas nos 4 pontos cardeais e elevador panorâmico no centro. As zonas são setores fixos do anel nos dois pisos *(layout ilustrativo criado para o protótipo)*. |
+| **Rotas por zona** | O visitante escolhe uma área (ex.: Praça de Alimentação). O mapa nomeia **só a zona de destino** e traça a rota seguindo a curva do corredor a partir do "Você está aqui". |
+| **Bússola / HUD de orientação** | Faixa de bússola no estilo de jogo (N, NE, L, SE...) que gira com o rumo de cada passo, mais um selo com a direção: FRENTE, ESQUERDA, DIREITA, ELEVADOR, CHEGOU. A voz fala a mesma coisa ("À esquerda... sentido Norte"). |
+| **Passo a passo** | Instruções com direção real (esquerda/direita), sentido cardeal, distância em metros, troca automática de piso e aviso de elevador. |
 | **Guia por Voz** | Lê telas e rotas em voz alta (Text-to-Speech). |
-| **Alto Contraste** | Tema preto e amarelo em todo o app, incluindo o mapa. |
+| **Alto Contraste** | 1 toque: tema preto e amarelo em todo o app, incluindo o mapa (WCAG AAA). |
+| **Modo Halloween** | 2 toques seguidos no Alto Contraste: preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. |
 | **Ajuda / SOS** | Chama um atendente até o totem; o chamado fica salvo no banco com status. |
 | **Comunicação por Imagens (CAA)** | Pictogramas que falam a frase e mostram em tela cheia para o atendente. |
 | **Voz** | Digite e o app fala, em português, inglês ou espanhol. |
-| **Modo Totem** | Emulação do totem físico com QR Code real, botões físicos e reinício após 90 s sem uso. |
+| **Painel da Gestão** | Relatório para o shopping: destinos mais buscados (onde colocar publicidade e lojas), mapa de calor das buscas por zona e mapa de calor de uso dos recursos por horário (Design Thinking), com filtro totem/celular. Vem com dados de demonstração, que podem ser apagados. |
+| **Modo Totem** | Emulação do totem físico com QR Code real (leva a rota para o celular), botões físicos e reinício após 90 s sem uso. |
 
-### Arquitetura e Estrutura do Código (`lib/`)
+### Arquitetura e Estrutura do Código (`app/lib/`)
 
 - **Flutter** (código único): Web Mobile (QR Code), Totem e Android.
 - **Banco de dados local Sembast** (NoSQL): IndexedDB no navegador e arquivo no Android.
   - `zonas`: áreas do mapa dos 2 pavimentos
   - `chamados_sos`: chamados de assistência e status
-  - `preferencias`: alto contraste e guia por voz
+  - `eventos`: uso anônimo (rotas buscadas, recursos usados, origem totem/celular) para o Painel da Gestão
+  - `preferencias`: alto contraste, Halloween e guia por voz
 - **`flutter_tts`**: voz (Web Speech API no navegador).
 - **`qr_flutter`**: QR Code do totem, que carrega a rota escolhida (`?destino=praca`).
 - Acessibilidade com `Semantics` (rótulos, regiões ao vivo, estados de botões).
 
 ```text
-lib/
+app/lib/
 ├── main.dart                 # Inicialização, banco e escolha celular/totem
 ├── config.dart               # Modo totem, link do QR, rota atual
 ├── app_state.dart            # Estado global, preferências e voz (TTS)
-├── theme.dart                # Cores do shopping e alto contraste
-├── data/                     # Banco Sembast, modelos e dados do mapa
+├── theme.dart                # Cores do shopping, alto contraste e Halloween
+├── data/                     # Banco Sembast, modelos, geometria oval e dados do mapa
 ├── logic/rota.dart           # Cálculo da rota e instruções passo a passo
-├── screens/                  # Boas-vindas, menu, rotas, mapa, SOS, CAA, voz
-└── widgets/                  # Mapa ilustrado, aranha, moldura do celular e do totem
+├── screens/                  # Boas-vindas, menu, rotas, mapa, SOS, CAA, voz, painel da gestão
+└── widgets/                  # Mapa redondo, bússola/HUD, Halloween, moldura do celular e do totem
 ```
+
+### Como rodar o código
+
+Pré-requisito: [Flutter](https://docs.flutter.dev/get-started/install) 3.47 ou mais novo.
+
+```bash
+cd app
+flutter pub get
+
+flutter run -d chrome                                       # celular (moldura no navegador)
+powershell -ExecutionPolicy Bypass -File rodar_totem.ps1    # totem na rede local
+flutter run -d android                                      # Android
+flutter test                                                # testes das rotas
+```
+
+Mais detalhes (como gerar o simulador HTML, publicar etc.) em [`app/README.md`](app/README.md).
+
+---
 
 ## 📚 Referências
 
 * **BRASIL.** Lei nº 13.146, de 6 de julho de 2015. Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência). Diário Oficial da União, Brasília, DF, 7 jul. 2015. Disponível em: [http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm). Acesso em: 13 nov. 2026.
 * **GOOGLE.** Gemini. Mountain View, CA: Google, 2026. Inteligência artificial generativa (Modelo Multimodal). Utilizado para auxílio na estruturação documental, ideação de protótipos de tela, geração de código base em Flutter e criação de imagens conceituais do projeto. Disponível em: [https://gemini.google.com](https://gemini.google.com). Acesso em: 13 nov. 2026.
 * **OPENAI.** ChatGPT. San Francisco, CA: OpenAI, 2026. Inteligência artificial generativa (Modelo de Linguagem). Utilizado pela equipe para apoio na ideação e estruturação inicial da proposta do projeto. Disponível em: [https://chatgpt.com](https://chatgpt.com). Acesso em: 13 nov. 2026.
+* **ANTHROPIC.** Claude (Claude Code). San Francisco, CA: Anthropic, 2026. Inteligência artificial generativa (Modelo de Linguagem). Utilizado no desenvolvimento do código Flutter, nos testes e na publicação do protótipo. Disponível em: [https://claude.com](https://claude.com). Acesso em: 14 nov. 2026.
 * **INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE).** Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC) 2022: Pessoas com deficiência e as desigualdades sociais no Brasil. Rio de Janeiro: IBGE, 2023. Disponível em: [https://ibge.gov.br](https://ibge.gov.br). Acesso em: 13 nov. 2026.
 * **MINISTÉRIO DO TURISMO.** Anuário Estatístico de Turismo. Brasília, DF: Ministério do Turismo, 2025. Disponível em: [https://www.gov.br/turismo](https://www.gov.br/turismo). Acesso em: 13 nov. 2026.
 * **SOUL MALLS; CAPIM DOURADO SHOPPING.** Operações - Capim Dourado Shopping: Plantas Baixas (Pavimento Térreo e Praça de Alimentação). Palmas, TO, nov. 2026. Arquivo PDF.

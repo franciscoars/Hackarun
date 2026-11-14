@@ -89,7 +89,18 @@ flutter run -d android
 flutter test
 ```
 
-No modo totem, o celular precisa estar no **mesmo Wi-Fi** do PC para abrir o QR Code.
+No modo totem local, o celular precisa estar no **mesmo Wi-Fi** do PC para abrir o QR Code.
+
+### Simulador em um único arquivo HTML
+
+Gera um `.html` com o app inteiro embutido (código, motor gráfico, fontes e logo), que abre com dois cliques e funciona sem internet:
+
+```bash
+flutter build web --release --dart-define=LAN_URL=https://franciscoars.github.io/Hackarun
+node ferramentas/gerar_html_unico.js build/web simulador/guia_acessivel.html ferramentas/fontes/*.woff2
+```
+
+`LAN_URL` é o endereço para onde o QR Code do totem aponta.
 
 ### Logo oficial
 

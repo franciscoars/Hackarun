@@ -1,0 +1,3 @@
+# O simulador e um arquivo gerado: o git nao deve converter nem comparar linha a linha
+simulador/*.html -text -diff
+prototipos/*.html -text
