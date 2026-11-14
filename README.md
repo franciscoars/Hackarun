@@ -18,6 +18,7 @@
 | **Ver o totem** (no PC) | Abra **[franciscoars.github.io/Hackarun/?totem](https://franciscoars.github.io/Hackarun/?totem)**. O QR Code na tela do totem abre o mesmo guia no celular. |
 | **Rodar sem internet** | Baixe **[Guia-Acessivel-Capim-Dourado.html](https://github.com/franciscoars/Hackarun/raw/main/simulador/Guia-Acessivel-Capim-Dourado.html)** (12,7 MB) e dê dois cliques. Tudo vem dentro do arquivo. |
 | **Ir direto para uma rota** | Adicione `?destino=` ao link. Ex.: [Praça de Alimentação](https://franciscoars.github.io/Hackarun/?destino=praca) · [Cinema](https://franciscoars.github.io/Hackarun/?destino=cinema) · [Banheiros](https://franciscoars.github.io/Hackarun/?destino=banh0) · [SAC](https://franciscoars.github.io/Hackarun/?destino=sac) |
+| **Ver os caminhos mais usados no totem** | Ranking e passo a passo em [`app/docs/CAMINHOS_MAIS_USADOS.md`](app/docs/CAMINHOS_MAIS_USADOS.md). |
 | **Ler o código** | Pasta [`app/`](app/) (Flutter) ou tudo em um arquivo: [`app/CODIGO_COMPLETO.txt`](app/CODIGO_COMPLETO.txt). |
 
 <p align="center">
@@ -30,10 +31,17 @@
 1. **Boas-vindas:** toque em qualquer lugar para começar.
 2. **Rotas:** escolha um destino (ex.: *Praça de Alimentação*). O mapa redondo mostra o caminho; toque em **Próximo** para seguir passo a passo. A bússola no topo gira e indica **FRENTE / ESQUERDA / DIREITA / ELEVADOR**.
 3. **Ouvir:** lê o passo em voz alta. Ative o **Guia por Voz** no menu para ouvir tudo automaticamente.
-4. **Alto Contraste:** **1 toque** = preto e amarelo. **2 toques seguidos** = **modo Halloween** 🎃 (preto e laranja, abóboras, morcegos e teias).
-5. **Comunicação por Imagens (CAA):** toque num pictograma (ex.: *Banheiro*); o app fala a frase e mostra em tela cheia para o atendente.
-6. **Ajuda / SOS:** chama um atendente até o totem; o chamado fica registrado.
-7. **Painel da gestão do shopping** (fim do menu): destinos mais buscados e mapas de calor de uso.
+4. **Alto Contraste:** tema preto e amarelo em todo o app, incluindo o mapa.
+5. **Voz:** escreva ou toque numa frase pronta e o app fala em **português, inglês ou espanhol**.
+6. **Comunicação por Imagens (CAA):** toque num pictograma (ex.: *Banheiro*); o app fala a frase e mostra em tela cheia para o atendente.
+7. **Ajuda / SOS:** chama um atendente até o totem; o chamado fica registrado.
+8. **Painel da gestão do shopping** (fim do menu): destinos mais buscados e mapas de calor de uso.
+
+<details>
+<summary>🤫 <b>Easter egg (spoiler para a banca)</b></summary>
+
+<br>Toque <b>duas vezes seguidas</b> no botão <b>Alto Contraste</b>: o app entra no <b>modo Halloween</b> 🎃 (preto e laranja, abóboras, morcegos, teias e uma aranha na tela de boas-vindas). É um segredo: o app não dá nenhuma dica ao visitante.
+</details>
 
 ---
 
@@ -45,7 +53,7 @@ Hackarun/
 ├── app/                      ← código-fonte do app em Flutter (totem + web app + Android)
 │   ├── lib/                  ← telas, mapa, rotas, voz, banco de dados
 │   ├── test/                 ← testes automatizados das rotas
-│   ├── docs/imagens/         ← capturas de tela
+│   ├── docs/                 ← capturas de tela e caminhos mais usados no totem
 │   ├── esboco_totem/         ← esboço do totem físico (NBR 9050)
 │   ├── ferramentas/          ← servidor do totem e gerador do HTML único
 │   └── CODIGO_COMPLETO.txt   ← todo o código em um só arquivo
@@ -221,13 +229,13 @@ A equipe materializou o planejamento técnico em um protótipo funcional multipl
 |---|---|---|---|
 | ![Rota Térreo](app/docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](app/docs/imagens/06_rota_piso1.png) | ![Chegada](app/docs/imagens/07_chegada.png) | ![Alto contraste](app/docs/imagens/08_alto_contraste.png) |
 
-| Rota no modo Halloween | Painel da Gestão | SOS salvo no banco |
-|---|---|---|
-| ![Halloween rota](app/docs/imagens/12_halloween_rota.png) | ![Painel da Gestão](app/docs/imagens/13_painel_gestao.png) | ![SOS](app/docs/imagens/09_sos_banco.png) |
+| Rota no modo Halloween | Painel da Gestão | Painel: só o totem | SOS salvo no banco |
+|---|---|---|---|
+| ![Halloween rota](app/docs/imagens/12_halloween_rota.png) | ![Painel da Gestão](app/docs/imagens/13_painel_gestao.png) | ![Painel totem](app/docs/imagens/14_painel_totem.png) | ![SOS](app/docs/imagens/09_sos_banco.png) |
 
-| Totem: menu | Totem: rota + QR Code |
-|---|---|
-| ![Totem menu](app/docs/imagens/10_totem_menu.png) | ![Totem rota](app/docs/imagens/11_totem_rota_qr.png) |
+| Totem: menu | Totem: rota + QR Code | Voz em 3 idiomas |
+|---|---|---|
+| ![Totem menu](app/docs/imagens/10_totem_menu.png) | ![Totem rota](app/docs/imagens/11_totem_rota_qr.png) | ![Voz em inglês](app/docs/imagens/15_voz_ingles.png) |
 
 ### Funcionalidades Entregues
 
@@ -240,10 +248,10 @@ A equipe materializou o planejamento técnico em um protótipo funcional multipl
 | **Passo a passo** | Instruções com direção real (esquerda/direita), sentido cardeal, distância em metros, troca automática de piso e aviso de elevador. |
 | **Guia por Voz** | Lê telas e rotas em voz alta (Text-to-Speech). |
 | **Alto Contraste** | 1 toque: tema preto e amarelo em todo o app, incluindo o mapa (WCAG AAA). |
-| **Modo Halloween** | 2 toques seguidos no Alto Contraste: preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. |
+| **Modo Halloween (easter egg)** | Segredo: 2 toques seguidos no Alto Contraste ativam o preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha da tela de boas-vindas. Sem nenhuma dica no app. |
 | **Ajuda / SOS** | Chama um atendente até o totem; o chamado fica salvo no banco com status. |
 | **Comunicação por Imagens (CAA)** | Pictogramas que falam a frase e mostram em tela cheia para o atendente. |
-| **Voz** | Digite e o app fala, em português, inglês ou espanhol. |
+| **Voz** | Digite e o app fala, em português, inglês ou espanhol, com a voz do idioma escolhido. Se o aparelho não tiver essa voz instalada, a tela avisa. |
 | **Painel da Gestão** | Relatório para o shopping: destinos mais buscados (onde colocar publicidade e lojas), mapa de calor das buscas por zona e mapa de calor de uso dos recursos por horário (Design Thinking), com filtro totem/celular. Vem com dados de demonstração, que podem ser apagados. |
 | **Modo Totem** | Emulação do totem físico com QR Code real (leva a rota para o celular), botões físicos e reinício após 90 s sem uso. |
 
@@ -255,7 +263,7 @@ A equipe materializou o planejamento técnico em um protótipo funcional multipl
   - `chamados_sos`: chamados de assistência e status
   - `eventos`: uso anônimo (rotas buscadas, recursos usados, origem totem/celular) para o Painel da Gestão
   - `preferencias`: alto contraste, Halloween e guia por voz
-- **`flutter_tts`**: voz (Web Speech API no navegador).
+- **Voz**: Web Speech API direto no navegador (`lib/voz/`) e `flutter_tts` no Android.
 - **`qr_flutter`**: QR Code do totem, que carrega a rota escolhida (`?destino=praca`).
 - Acessibilidade com `Semantics` (rótulos, regiões ao vivo, estados de botões).
 
@@ -270,6 +278,20 @@ app/lib/
 ├── screens/                  # Boas-vindas, menu, rotas, mapa, SOS, CAA, voz, painel da gestão
 └── widgets/                  # Mapa redondo, bússola/HUD, Halloween, moldura do celular e do totem
 ```
+
+### 🧭 Caminhos mais usados no totem
+
+Do Painel da Gestão, filtro *Totem* (dados de demonstração, 137 buscas):
+
+| # | Destino | % | Caminho a partir do totem da entrada |
+|:-:|---|:-:|---|
+| 1 | Praça de Alimentação | 31% | Passarela até o elevador → Piso 1 → passarela **Norte** → esquerda → fica à direita (~115 m) |
+| 2 | Cinema | 18% | Passarela até o elevador → Piso 1 → passarela **Leste** → esquerda → fica à direita (~120 m) |
+| 3 | Fraldário | 12% | Passarela até o elevador → Piso 1 → passarela **Oeste** → esquerda → fica à direita (~120 m) |
+| 4 | SAC · Atendimento | 11% | Em frente até o corredor → **direita** → fica à direita (~60 m) |
+| 5 | Banheiros | 10% | Em frente até o corredor → **esquerda** → fica à esquerda (~80 m) |
+
+**65% das buscas do totem passam pela passarela da entrada e pelo elevador panorâmico**: é o melhor ponto para publicidade, sinalização e lojas de impulso. Passo a passo completo de cada rota: **[app/docs/CAMINHOS_MAIS_USADOS.md](app/docs/CAMINHOS_MAIS_USADOS.md)**.
 
 ### Como rodar o código
 

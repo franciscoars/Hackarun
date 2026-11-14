@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       titulo: 'Alto Contraste',
                       subtitulo: s.halloween
                           ? 'Modo Halloween'
-                          : (s.altoContraste ? 'Ligado · 2 toques: Halloween' : 'Desligado · 2 toques: Halloween'),
+                          : (s.altoContraste ? 'Ligado' : 'Desligado'),
                       cor: const Color(0xFF263238),
                       ligado: s.altoContraste,
                       selo: s.halloween ? const Abobora(tamanho: 22) : null,

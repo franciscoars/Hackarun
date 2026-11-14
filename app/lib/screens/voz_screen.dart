@@ -15,6 +15,16 @@ class VozScreen extends StatefulWidget {
 class _VozScreenState extends State<VozScreen> {
   final _texto = TextEditingController();
   String _idioma = 'pt-BR';
+  bool _semVoz = false;
+
+  Future<void> _escolherIdioma(String idioma) async {
+    setState(() {
+      _idioma = idioma;
+      _semVoz = false;
+    });
+    final tem = await AppScope.read(context).fala.temVoz(idioma);
+    if (mounted && _idioma == idioma) setState(() => _semVoz = !tem);
+  }
 
   static const _idiomas = {'pt-BR': 'Português', 'en-US': 'English', 'es-ES': 'Español'};
   static const _rapidas = {
@@ -56,10 +66,36 @@ class _VozScreenState extends State<VozScreen> {
                       ChoiceChip(
                         label: Text(e.value, style: const TextStyle(fontSize: 15)),
                         selected: _idioma == e.key,
-                        onSelected: (_) => setState(() => _idioma = e.key),
+                        onSelected: (_) => _escolherIdioma(e.key),
                       ),
                   ],
                 ),
+                if (_semVoz) ...[
+                  const SizedBox(height: 10),
+                  Semantics(
+                    liveRegion: true,
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: p.ac ? Colors.black : const Color(0xFFFFF3E0),
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(color: p.ac ? Cores.amareloAC : const Color(0xFFFFB74D)),
+                      ),
+                      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Icon(Icons.info_outline, color: p.ac ? Cores.amareloAC : const Color(0xFFE65100)),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            'Este aparelho não tem voz em ${_idiomas[_idioma]} instalada: a frase sai '
+                            'com a voz padrão. Para a pronúncia certa, instale a voz nas configurações '
+                            'de idioma/fala do aparelho.',
+                            style: TextStyle(fontSize: 14, color: p.texto, height: 1.35),
+                          ),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 12),
                 TextField(
                   controller: _texto,

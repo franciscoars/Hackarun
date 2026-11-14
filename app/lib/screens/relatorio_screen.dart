@@ -27,7 +27,6 @@ class _RelatorioScreenState extends State<RelatorioScreen> {
     'mapa': 'Mapa',
     'guiaVoz': 'Guia por voz',
     'altoContraste': 'Alto contraste',
-    'halloween': 'Modo Halloween',
     'sos': 'Ajuda / SOS',
     'caa': 'Imagens (CAA)',
     'voz': 'Voz',
@@ -218,7 +217,10 @@ class _RelatorioScreenState extends State<RelatorioScreen> {
         '${nomes[top.key] ?? top.key} concentra $pct% das buscas. O caminho até lá é o melhor ponto para publicidade e para lojas de impulso.'
       ));
     }
-    final usados = totalRecurso.entries.where((e) => e.key != 'rotas').toList()
+    final usados = totalRecurso.entries
+        // SOS pouco usado é bom sinal (menos gente precisando de socorro): fica de fora.
+        .where((e) => e.key != 'rotas' && e.key != 'sos' && _recursos.containsKey(e.key))
+        .toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     if (usados.isNotEmpty) {
       final menos = usados.first;

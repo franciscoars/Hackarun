@@ -7,30 +7,59 @@ import 'config.dart';
 import 'data/database.dart';
 import 'data/models.dart';
 import 'theme.dart';
+import 'voz/voz_stub.dart' if (dart.library.js_interop) 'voz/voz_web.dart';
 
-/// Texto-para-fala (TTS). No navegador usa a Web Speech API.
+/// Texto-para-fala (TTS) em português, inglês e espanhol.
+/// No navegador usa a Web Speech API diretamente (VozNavegador);
+/// no Android usa o flutter_tts.
 class Fala {
-  final FlutterTts _tts = FlutterTts();
+  final VozNavegador _navegador = VozNavegador();
+  FlutterTts? _tts;
+
+  bool get _usarNavegador => kIsWeb && _navegador.disponivel;
 
   Future<void> iniciar() async {
+    if (kIsWeb) return;
     try {
-      await _tts.setLanguage('pt-BR');
-      await _tts.setSpeechRate(kIsWeb ? 1.0 : 0.5);
-      await _tts.setPitch(1.0);
+      final tts = _tts = FlutterTts();
+      await tts.setLanguage('pt-BR');
+      await tts.setSpeechRate(0.5);
+      await tts.setPitch(1.0);
     } catch (_) {}
   }
 
   Future<void> falar(String texto, {String idioma = 'pt-BR'}) async {
     try {
-      await _tts.stop();
-      await _tts.setLanguage(idioma);
-      await _tts.speak(texto);
+      if (_usarNavegador) {
+        await _navegador.falar(texto, idioma: idioma);
+        return;
+      }
+      final tts = _tts ??= FlutterTts();
+      await tts.stop();
+      await tts.setLanguage(idioma);
+      await tts.speak(texto);
     } catch (_) {}
+  }
+
+  /// Se o aparelho tem voz instalada no idioma (ex.: en-US, es-ES).
+  /// Sem ela, o navegador lê com a voz padrão (sotaque de outra língua).
+  Future<bool> temVoz(String idioma) async {
+    try {
+      if (_usarNavegador) return await _navegador.temVoz(idioma);
+      final r = await (_tts ??= FlutterTts()).isLanguageAvailable(idioma);
+      return r == true || r == 1;
+    } catch (_) {
+      return true;
+    }
   }
 
   Future<void> parar() async {
     try {
-      await _tts.stop();
+      if (_usarNavegador) {
+        _navegador.parar();
+      } else {
+        await _tts?.stop();
+      }
     } catch (_) {}
   }
 }

@@ -2,9 +2,9 @@
 Codigo-fonte completo
 
 INDICE
-  README.md                                      128 linhas
-  pubspec.yaml                                    97 linhas
-  lib\app_state.dart                             145 linhas
+  README.md                                      136 linhas
+  pubspec.yaml                                    98 linhas
+  lib\app_state.dart                             174 linhas
   lib\config.dart                                 27 linhas
   lib\data\database.dart                         145 linhas
   lib\data\db_factory.dart                         3 linhas
@@ -19,12 +19,14 @@ INDICE
   lib\screens\caa_screen.dart                    136 linhas
   lib\screens\home_screen.dart                   353 linhas
   lib\screens\mapa_screen.dart                   368 linhas
-  lib\screens\relatorio_screen.dart              448 linhas
+  lib\screens\relatorio_screen.dart              450 linhas
   lib\screens\rotas_screen.dart                  149 linhas
   lib\screens\sos_screen.dart                    192 linhas
   lib\screens\splash_screen.dart                 196 linhas
-  lib\screens\voz_screen.dart                    122 linhas
+  lib\screens\voz_screen.dart                    158 linhas
   lib\theme.dart                                  84 linhas
+  lib\voz\voz_stub.dart                            7 linhas
+  lib\voz\voz_web.dart                            86 linhas
   lib\widgets\aranha_overlay.dart                180 linhas
   lib\widgets\comuns.dart                        119 linhas
   lib\widgets\halloween.dart                     190 linhas
@@ -40,7 +42,7 @@ INDICE
   android\app\build.gradle.kts                    49 linhas
   android\app\src\main\AndroidManifest.xml        45 linhas
   web\index.html                                  46 linhas
-  TOTAL                                         5724 linhas
+  TOTAL                                         5893 linhas
 
 ==========================================================================================
 ARQUIVO: README.md
@@ -61,9 +63,13 @@ O visitante usa o totem ou lê o QR Code e o guia abre no próprio celular: rota
 |---|---|---|---|
 | ![Rota Térreo](docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](docs/imagens/06_rota_piso1.png) | ![Chegada](docs/imagens/07_chegada.png) | ![Alto contraste](docs/imagens/08_alto_contraste.png) |
 
-| Rota no modo Halloween | Painel da Gestão | SOS salvo no banco |
-|---|---|---|
-| ![Halloween rota](docs/imagens/12_halloween_rota.png) | ![Painel](docs/imagens/13_painel_gestao.png) | ![SOS](docs/imagens/09_sos_banco.png) |
+| Rota no modo Halloween | Painel da Gestão | Painel: só o totem | SOS salvo no banco |
+|---|---|---|---|
+| ![Halloween rota](docs/imagens/12_halloween_rota.png) | ![Painel](docs/imagens/13_painel_gestao.png) | ![Painel totem](docs/imagens/14_painel_totem.png) | ![SOS](docs/imagens/09_sos_banco.png) |
+
+| Voz em 3 idiomas |
+|---|
+| ![Voz em inglês](docs/imagens/15_voz_ingles.png) |
 
 | Totem: menu | Totem: rota + QR Code |
 |---|---|
@@ -85,12 +91,16 @@ Pessoas surdas, cegas, com deficiência física ou intelectual e turistas estran
 | **Mapa ilustrado** | Térreo e Piso 1 em estilo lúdico, com zoom e toque nas áreas. |
 | **Guia por Voz** | Lê telas e rotas em voz alta (Text-to-Speech). |
 | **Alto Contraste** | 1 toque: tema preto e amarelo em todo o app, incluindo o mapa. |
-| **Modo Halloween** | 2 toques seguidos no botão Alto Contraste: preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. |
+| **Modo Halloween (easter egg)** | Segredo: **2 toques seguidos** no botão Alto Contraste ativam o preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. O app não dá nenhuma dica: o visitante descobre sozinho. |
 | **Ajuda / SOS** | Chama um atendente até o totem; o chamado fica salvo no banco com status. |
 | **Comunicação por Imagens (CAA)** | Pictogramas que falam a frase e mostram em tela cheia para o atendente. |
-| **Voz** | Digite e o app fala, em português, inglês ou espanhol. |
+| **Voz** | Digite e o app fala, em português, inglês ou espanhol. No navegador usa a Web Speech API direto, com uma voz do idioma escolhido; se o aparelho não tiver essa voz instalada, a tela avisa. |
 | **Painel da Gestão** | Relatório para o shopping: destinos mais buscados (onde colocar publicidade e lojas), mapa de calor das buscas por zona e mapa de calor de uso dos recursos por horário (Design Thinking), com filtro totem/celular. Vem com dados de demonstração, que podem ser apagados. |
 | **Modo Totem** | Emulação do totem físico com QR Code real, botões físicos e reinício após 90 s sem uso. |
+
+## Caminhos mais usados no totem
+
+Ranking das rotas mais buscadas no totem e o passo a passo de cada uma: **[docs/CAMINHOS_MAIS_USADOS.md](docs/CAMINHOS_MAIS_USADOS.md)**.
 
 ## Arquitetura
 
@@ -100,7 +110,7 @@ Pessoas surdas, cegas, com deficiência física ou intelectual e turistas estran
   - `chamados_sos`: chamados de assistência e status
   - `eventos`: uso anônimo (rotas buscadas, recursos usados, origem totem/celular) para o Painel da Gestão
   - `preferencias`: alto contraste, Halloween e guia por voz
-- **flutter_tts**: voz (Web Speech API no navegador).
+- **Voz**: Web Speech API direto no navegador (`lib/voz/voz_web.dart`) e `flutter_tts` no Android.
 - **qr_flutter**: QR Code do totem, que carrega a rota escolhida (`?destino=praca`).
 - Acessibilidade com `Semantics` (rótulos, regiões ao vivo, estados de botões).
 
@@ -216,6 +226,7 @@ dependencies:
   sembast: ^3.10.1
   sembast_web: ^2.4.7
   flutter_tts: ^4.2.5
+  web: ^1.1.1
   path_provider: ^2.1.6
   path: ^1.9.1
   qr_flutter: ^4.1.0
@@ -287,30 +298,59 @@ import 'config.dart';
 import 'data/database.dart';
 import 'data/models.dart';
 import 'theme.dart';
+import 'voz/voz_stub.dart' if (dart.library.js_interop) 'voz/voz_web.dart';
 
-/// Texto-para-fala (TTS). No navegador usa a Web Speech API.
+/// Texto-para-fala (TTS) em português, inglês e espanhol.
+/// No navegador usa a Web Speech API diretamente (VozNavegador);
+/// no Android usa o flutter_tts.
 class Fala {
-  final FlutterTts _tts = FlutterTts();
+  final VozNavegador _navegador = VozNavegador();
+  FlutterTts? _tts;
+
+  bool get _usarNavegador => kIsWeb && _navegador.disponivel;
 
   Future<void> iniciar() async {
+    if (kIsWeb) return;
     try {
-      await _tts.setLanguage('pt-BR');
-      await _tts.setSpeechRate(kIsWeb ? 1.0 : 0.5);
-      await _tts.setPitch(1.0);
+      final tts = _tts = FlutterTts();
+      await tts.setLanguage('pt-BR');
+      await tts.setSpeechRate(0.5);
+      await tts.setPitch(1.0);
     } catch (_) {}
   }
 
   Future<void> falar(String texto, {String idioma = 'pt-BR'}) async {
     try {
-      await _tts.stop();
-      await _tts.setLanguage(idioma);
-      await _tts.speak(texto);
+      if (_usarNavegador) {
+        await _navegador.falar(texto, idioma: idioma);
+        return;
+      }
+      final tts = _tts ??= FlutterTts();
+      await tts.stop();
+      await tts.setLanguage(idioma);
+      await tts.speak(texto);
     } catch (_) {}
+  }
+
+  /// Se o aparelho tem voz instalada no idioma (ex.: en-US, es-ES).
+  /// Sem ela, o navegador lê com a voz padrão (sotaque de outra língua).
+  Future<bool> temVoz(String idioma) async {
+    try {
+      if (_usarNavegador) return await _navegador.temVoz(idioma);
+      final r = await (_tts ??= FlutterTts()).isLanguageAvailable(idioma);
+      return r == true || r == 1;
+    } catch (_) {
+      return true;
+    }
   }
 
   Future<void> parar() async {
     try {
-      await _tts.stop();
+      if (_usarNavegador) {
+        _navegador.parar();
+      } else {
+        await _tts?.stop();
+      }
     } catch (_) {}
   }
 }
@@ -1481,7 +1521,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       titulo: 'Alto Contraste',
                       subtitulo: s.halloween
                           ? 'Modo Halloween'
-                          : (s.altoContraste ? 'Ligado · 2 toques: Halloween' : 'Desligado · 2 toques: Halloween'),
+                          : (s.altoContraste ? 'Ligado' : 'Desligado'),
                       cor: const Color(0xFF263238),
                       ligado: s.altoContraste,
                       selo: s.halloween ? const Abobora(tamanho: 22) : null,
@@ -2111,7 +2151,6 @@ class _RelatorioScreenState extends State<RelatorioScreen> {
     'mapa': 'Mapa',
     'guiaVoz': 'Guia por voz',
     'altoContraste': 'Alto contraste',
-    'halloween': 'Modo Halloween',
     'sos': 'Ajuda / SOS',
     'caa': 'Imagens (CAA)',
     'voz': 'Voz',
@@ -2302,7 +2341,10 @@ class _RelatorioScreenState extends State<RelatorioScreen> {
         '${nomes[top.key] ?? top.key} concentra $pct% das buscas. O caminho até lá é o melhor ponto para publicidade e para lojas de impulso.'
       ));
     }
-    final usados = totalRecurso.entries.where((e) => e.key != 'rotas').toList()
+    final usados = totalRecurso.entries
+        // SOS pouco usado é bom sinal (menos gente precisando de socorro): fica de fora.
+        .where((e) => e.key != 'rotas' && e.key != 'sos' && _recursos.containsKey(e.key))
+        .toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     if (usados.isNotEmpty) {
       final menos = usados.first;
@@ -3100,6 +3142,16 @@ class VozScreen extends StatefulWidget {
 class _VozScreenState extends State<VozScreen> {
   final _texto = TextEditingController();
   String _idioma = 'pt-BR';
+  bool _semVoz = false;
+
+  Future<void> _escolherIdioma(String idioma) async {
+    setState(() {
+      _idioma = idioma;
+      _semVoz = false;
+    });
+    final tem = await AppScope.read(context).fala.temVoz(idioma);
+    if (mounted && _idioma == idioma) setState(() => _semVoz = !tem);
+  }
 
   static const _idiomas = {'pt-BR': 'Português', 'en-US': 'English', 'es-ES': 'Español'};
   static const _rapidas = {
@@ -3141,10 +3193,36 @@ class _VozScreenState extends State<VozScreen> {
                       ChoiceChip(
                         label: Text(e.value, style: const TextStyle(fontSize: 15)),
                         selected: _idioma == e.key,
-                        onSelected: (_) => setState(() => _idioma = e.key),
+                        onSelected: (_) => _escolherIdioma(e.key),
                       ),
                   ],
                 ),
+                if (_semVoz) ...[
+                  const SizedBox(height: 10),
+                  Semantics(
+                    liveRegion: true,
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: p.ac ? Colors.black : const Color(0xFFFFF3E0),
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(color: p.ac ? Cores.amareloAC : const Color(0xFFFFB74D)),
+                      ),
+                      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Icon(Icons.info_outline, color: p.ac ? Cores.amareloAC : const Color(0xFFE65100)),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            'Este aparelho não tem voz em ${_idiomas[_idioma]} instalada: a frase sai '
+                            'com a voz padrão. Para a pronúncia certa, instale a voz nas configurações '
+                            'de idioma/fala do aparelho.',
+                            style: TextStyle(fontSize: 14, color: p.texto, height: 1.35),
+                          ),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 12),
                 TextField(
                   controller: _texto,
@@ -3292,6 +3370,107 @@ class Paleta {
             offset: const Offset(0, 6),
           ),
         ];
+}
+
+==========================================================================================
+ARQUIVO: lib\voz\voz_stub.dart
+==========================================================================================
+/// Fora do navegador (Android) não há Web Speech API: o app usa o flutter_tts.
+class VozNavegador {
+  bool get disponivel => false;
+  Future<bool> temVoz(String idioma) async => true;
+  Future<void> falar(String texto, {required String idioma, double velocidade = 1.0}) async {}
+  void parar() {}
+}
+
+==========================================================================================
+ARQUIVO: lib\voz\voz_web.dart
+==========================================================================================
+import 'dart:async';
+import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+
+import 'package:web/web.dart' as web;
+
+/// Voz no navegador direto pela Web Speech API.
+///
+/// Por que não usar só o flutter_tts aqui: no navegador ele reaproveita
+/// uma única fala, ignora `speak` logo depois de `stop` e não troca de
+/// idioma se a lista de vozes ainda não carregou. O resultado era inglês
+/// e espanhol mudos. Aqui cada frase é uma fala nova, com a voz do idioma.
+class VozNavegador {
+  web.SpeechSynthesis get _synth => web.window.speechSynthesis;
+  List<web.SpeechSynthesisVoice> _vozes = const [];
+  Completer<void>? _carregando;
+
+  bool get disponivel {
+    try {
+      return (web.window as JSObject).has('speechSynthesis');
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// A lista de vozes chega de forma assíncrona (evento `voiceschanged`).
+  Future<void> _carregarVozes() async {
+    _vozes = _synth.getVoices().toDart;
+    if (_vozes.isNotEmpty) return;
+    if (_carregando != null) return _carregando!.future;
+    final c = _carregando = Completer<void>();
+    _synth.onvoiceschanged = ((web.Event _) {
+      _vozes = _synth.getVoices().toDart;
+      if (!c.isCompleted) c.complete();
+    }).toJS;
+    // Alguns navegadores nunca disparam o evento: segue sem lista.
+    await c.future.timeout(const Duration(milliseconds: 1500), onTimeout: () {});
+    _vozes = _synth.getVoices().toDart;
+    _carregando = null;
+  }
+
+  /// Melhor voz para o idioma: mesmo código (en-US), depois mesma língua (en),
+  /// preferindo vozes do aparelho (funcionam offline e não cortam a fala).
+  web.SpeechSynthesisVoice? _vozPara(String idioma) {
+    String norm(String s) => s.toLowerCase().replaceAll('_', '-');
+    final alvo = norm(idioma);
+    final lingua = alvo.split('-').first;
+    final exatas = _vozes.where((v) => norm(v.lang) == alvo).toList();
+    final mesmaLingua = _vozes.where((v) => norm(v.lang).split('-').first == lingua).toList();
+    for (final lista in [exatas, mesmaLingua]) {
+      if (lista.isEmpty) continue;
+      return lista.firstWhere((v) => v.localService, orElse: () => lista.first);
+    }
+    return null;
+  }
+
+  /// true se o aparelho tem uma voz instalada na língua pedida.
+  Future<bool> temVoz(String idioma) async {
+    await _carregarVozes();
+    if (_vozes.isEmpty) return true; // sem lista: não dá para saber, não avisa
+    return _vozPara(idioma) != null;
+  }
+
+  Future<void> falar(String texto, {required String idioma, double velocidade = 1.0}) async {
+    if (texto.trim().isEmpty) return;
+    await _carregarVozes();
+    final f = web.SpeechSynthesisUtterance(texto)
+      ..lang = idioma
+      ..rate = velocidade
+      ..pitch = 1.0
+      ..volume = 1.0;
+    final voz = _vozPara(idioma);
+    if (voz != null) {
+      f.voice = voz;
+      f.lang = voz.lang;
+    }
+    // O Chrome descarta a fala se speak() vem colado no cancel().
+    final estavaFalando = _synth.speaking || _synth.pending;
+    _synth.cancel();
+    if (estavaFalando) await Future<void>.delayed(const Duration(milliseconds: 80));
+    _synth.resume(); // destrava o Chrome se ficou em pausa
+    _synth.speak(f);
+  }
+
+  void parar() => _synth.cancel();
 }
 
 ==========================================================================================

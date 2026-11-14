@@ -14,9 +14,13 @@ O visitante usa o totem ou lê o QR Code e o guia abre no próprio celular: rota
 |---|---|---|---|
 | ![Rota Térreo](docs/imagens/05_rota_terreo.png) | ![Rota Piso 1](docs/imagens/06_rota_piso1.png) | ![Chegada](docs/imagens/07_chegada.png) | ![Alto contraste](docs/imagens/08_alto_contraste.png) |
 
-| Rota no modo Halloween | Painel da Gestão | SOS salvo no banco |
-|---|---|---|
-| ![Halloween rota](docs/imagens/12_halloween_rota.png) | ![Painel](docs/imagens/13_painel_gestao.png) | ![SOS](docs/imagens/09_sos_banco.png) |
+| Rota no modo Halloween | Painel da Gestão | Painel: só o totem | SOS salvo no banco |
+|---|---|---|---|
+| ![Halloween rota](docs/imagens/12_halloween_rota.png) | ![Painel](docs/imagens/13_painel_gestao.png) | ![Painel totem](docs/imagens/14_painel_totem.png) | ![SOS](docs/imagens/09_sos_banco.png) |
+
+| Voz em 3 idiomas |
+|---|
+| ![Voz em inglês](docs/imagens/15_voz_ingles.png) |
 
 | Totem: menu | Totem: rota + QR Code |
 |---|---|
@@ -38,12 +42,16 @@ Pessoas surdas, cegas, com deficiência física ou intelectual e turistas estran
 | **Mapa ilustrado** | Térreo e Piso 1 em estilo lúdico, com zoom e toque nas áreas. |
 | **Guia por Voz** | Lê telas e rotas em voz alta (Text-to-Speech). |
 | **Alto Contraste** | 1 toque: tema preto e amarelo em todo o app, incluindo o mapa. |
-| **Modo Halloween** | 2 toques seguidos no botão Alto Contraste: preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. |
+| **Modo Halloween (easter egg)** | Segredo: **2 toques seguidos** no botão Alto Contraste ativam o preto e laranja (também acima de 7:1), com abóboras, morcegos, teias e a aranha que desce na tela de boas-vindas. O app não dá nenhuma dica: o visitante descobre sozinho. |
 | **Ajuda / SOS** | Chama um atendente até o totem; o chamado fica salvo no banco com status. |
 | **Comunicação por Imagens (CAA)** | Pictogramas que falam a frase e mostram em tela cheia para o atendente. |
-| **Voz** | Digite e o app fala, em português, inglês ou espanhol. |
+| **Voz** | Digite e o app fala, em português, inglês ou espanhol. No navegador usa a Web Speech API direto, com uma voz do idioma escolhido; se o aparelho não tiver essa voz instalada, a tela avisa. |
 | **Painel da Gestão** | Relatório para o shopping: destinos mais buscados (onde colocar publicidade e lojas), mapa de calor das buscas por zona e mapa de calor de uso dos recursos por horário (Design Thinking), com filtro totem/celular. Vem com dados de demonstração, que podem ser apagados. |
 | **Modo Totem** | Emulação do totem físico com QR Code real, botões físicos e reinício após 90 s sem uso. |
+
+## Caminhos mais usados no totem
+
+Ranking das rotas mais buscadas no totem e o passo a passo de cada uma: **[docs/CAMINHOS_MAIS_USADOS.md](docs/CAMINHOS_MAIS_USADOS.md)**.
 
 ## Arquitetura
 
@@ -53,7 +61,7 @@ Pessoas surdas, cegas, com deficiência física ou intelectual e turistas estran
   - `chamados_sos`: chamados de assistência e status
   - `eventos`: uso anônimo (rotas buscadas, recursos usados, origem totem/celular) para o Painel da Gestão
   - `preferencias`: alto contraste, Halloween e guia por voz
-- **flutter_tts**: voz (Web Speech API no navegador).
+- **Voz**: Web Speech API direto no navegador (`lib/voz/voz_web.dart`) e `flutter_tts` no Android.
 - **qr_flutter**: QR Code do totem, que carrega a rota escolhida (`?destino=praca`).
 - Acessibilidade com `Semantics` (rótulos, regiões ao vivo, estados de botões).
 
